@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeprekOn — Katalog Ayam Geprek & Camilan</title>
+    <meta
+      name="description"
+      content="Katalog GeprekOn: ayam geprek, paket hemat, minuman, dan camilan. Pesan langsung melalui WhatsApp."
+    />
+    <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="GeprekOn, kembali ke katalog">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z" />
+              <path d="M6 8c0-2 2-3 4-2 1-2 4-2 5 0 2-1 4 0 4 2" />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>GeprekOn</strong>
+            <span>Ayam Geprek UMKM</span>
+          </span>
+        </a>
+        <div class="header-actions" id="authActions">
+          <a class="btn btn-ghost" href="/login">Masuk</a>
+          <a class="btn btn-primary" href="/login?mode=register">Daftar</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <span class="eyebrow">Katalog UMKM · Bandung</span>
+            <h1>Pedasnya nagih,<br /><em>harganya bersahabat.</em></h1>
+            <p class="lead">
+              Ayam geprek crispy dengan sambal racikan sendiri, paket hemat, dan
+              camilan pendamping. Pilih menu favoritmu, lalu pesan langsung lewat
+              WhatsApp — tanpa aplikasi tambahan.
+            </p>
+            <div class="hero-meta">
+              <span data-icon="pin"><span id="storeAddress">Memuat alamat…</span></span>
+              <span data-icon="clock"><span id="storeHours">Memuat jam buka…</span></span>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Pemesanan WhatsApp">
+            <h2>Pesan langsung, tanpa ribet</h2>
+            <p>
+              Tanyakan stok, tambahan sambal, atau pesan dalam jumlah banyak melalui
+              WhatsApp toko.
+            </p>
+            <div class="wa-box">
+              <span data-icon="wa" aria-hidden="true"></span>
+              <div>
+                <strong id="storeWhatsapp">Memuat nomor…</strong>
+                <span>WhatsApp resmi <span id="storeNameLabel">GeprekOn</span></span>
+              </div>
+            </div>
+            <a
+              class="btn btn-wa"
+              id="storeWhatsappButton"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span data-icon="wa" aria-hidden="true"></span>
+              Chat WhatsApp Toko
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="catalog-section">
+        <div class="container">
+          <div class="toolbar">
+            <div class="search-box">
+              <span data-icon="search" aria-hidden="true"></span>
+              <label class="sr-only" for="searchInput">Cari produk</label>
+              <input
+                class="input"
+                id="searchInput"
+                type="search"
+                placeholder="Cari ayam geprek, minuman, camilan…"
+                autocomplete="off"
+              />
+            </div>
+            <div class="toolbar-right">
+              <label class="sort-field" for="sortSelect">
+                <span>Urutkan</span>
+                <select class="select" id="sortSelect">
+                  <option value="featured">Unggulan</option>
+                  <option value="name_asc">Nama A–Z</option>
+                  <option value="price_asc">Harga terendah</option>
+                  <option value="price_desc">Harga tertinggi</option>
+                  <option value="stock_desc">Stok terbanyak</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="chips" id="categoryChips" aria-label="Filter kategori">
+            <button class="chip active" type="button" data-category="all">
+              Semua kategori
+            </button>
+          </div>
+
+          <div class="results-line">
+            <h2>Menu hari ini</h2>
+            <p id="resultCount" aria-live="polite">Memuat produk…</p>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© <span id="year">2026</span> GeprekOn. Katalog UMKM makanan.</span>
+        <nav class="footer-links" aria-label="Tautan footer">
+          <a href="/">Katalog</a>
+          <a href="/login">Masuk</a>
+          <a href="/login?mode=register">Daftar pembeli</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/catalog.js"></script>
+  </body>
+</html>

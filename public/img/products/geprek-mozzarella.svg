@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustrasi ayam geprek mozzarella">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff0d2"/>
+      <stop offset="1" stop-color="#f4c874"/>
+    </linearGradient>
+    <radialGradient id="plate" cx="45%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#fffefa"/>
+      <stop offset="1" stop-color="#f3ecdd"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="120" cy="90" r="140" fill="#ffffff" opacity="0.24"/>
+  <circle cx="700" cy="520" r="170" fill="#ffffff" opacity="0.16"/>
+  <circle cx="690" cy="120" r="60" fill="#ffffff" opacity="0.2"/>
+  <ellipse cx="400" cy="368" rx="252" ry="170" fill="#8a5a15" opacity="0.15"/>
+  <ellipse cx="400" cy="348" rx="252" ry="170" fill="url(#plate)"/>
+  <ellipse cx="400" cy="348" rx="205" ry="130" fill="#f2e8d6"/>
+  <ellipse cx="320" cy="360" rx="92" ry="58" fill="#fffdf8"/>
+  <path d="M420 270c58-20 118 4 130 48 12 47-28 92-84 92-50 0-92-28-94-66-2-33 16-58 48-74Z" fill="#cf8534"/>
+  <path d="M446 288c38-11 76 6 82 33 7 28-18 53-52 52-32-1-58-20-56-43 1-18 10-32 26-42Z" fill="#e5a851" opacity="0.8"/>
+  <g fill="#ffd34e">
+    <path d="M430 292c-18 30-10 62 14 70 26 9 52-14 48-42-3-20-24-36-62-28Z" opacity="0.95"/>
+    <path d="M500 330c22 6 30 26 20 44-8 14-25 18-36 6-10-11-7-30 16-50Z" opacity="0.9"/>
+    <path d="M456 356c14 18 14 40-2 50-14 9-33 1-34-14-1-13 12-26 36-36Z" opacity="0.85"/>
+    <path d="M380 322c-8 22 0 42 16 46 16 3 28-12 24-28-4-14-18-22-40-18Z" opacity="0.9"/>
+  </g>
+  <g fill="#f2b13c" opacity="0.9">
+    <circle cx="372" cy="300" r="7"/>
+    <circle cx="530" cy="270" r="6"/>
+    <circle cx="404" cy="272" r="5"/>
+  </g>
+  <g fill="#6f9b4c">
+    <circle cx="242" cy="390" r="25"/>
+    <circle cx="242" cy="390" r="16" fill="#b6d896"/>
+    <path d="M600 240c26-16 50-14 66 0-20 14-44 14-66 0Z"/>
+  </g>
+</svg>

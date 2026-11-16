@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustrasi tahu crispy sambal">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdebd7"/>
+      <stop offset="1" stop-color="#f2b98e"/>
+    </linearGradient>
+    <radialGradient id="plate" cx="45%" cy="35%" r="70%">
+      <stop offset="0" stop-color="#fffefa"/>
+      <stop offset="1" stop-color="#f2ead9"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="110" cy="110" r="140" fill="#ffffff" opacity="0.24"/>
+  <circle cx="680" cy="500" r="170" fill="#ffffff" opacity="0.18"/>
+  <ellipse cx="400" cy="372" rx="248" ry="166" fill="#8a4a1c" opacity="0.13"/>
+  <ellipse cx="400" cy="352" rx="248" ry="166" fill="url(#plate)"/>
+  <ellipse cx="400" cy="352" rx="202" ry="126" fill="#f3ead9"/>
+  <g>
+    <rect x="280" y="300" width="105" height="96" rx="18" fill="#f2cf8f" transform="rotate(-8 332 348)"/>
+    <rect x="290" y="310" width="84" height="74" rx="12" fill="#f9e2b2" transform="rotate(-8 332 348)"/>
+    <rect x="402" y="276" width="110" height="100" rx="18" fill="#eabf73" transform="rotate(10 457 326)"/>
+    <rect x="414" y="288" width="88" height="76" rx="12" fill="#f7dda9" transform="rotate(10 458 326)"/>
+    <rect x="352" y="364" width="108" height="98" rx="18" fill="#f0c583" transform="rotate(4 406 413)"/>
+    <rect x="363" y="376" width="86" height="74" rx="12" fill="#fae4b6" transform="rotate(4 406 413)"/>
+    <rect x="486" y="352" width="88" height="82" rx="16" fill="#e8b96b" transform="rotate(-12 530 393)"/>
+    <rect x="497" y="363" width="66" height="60" rx="10" fill="#f8dda6" transform="rotate(-12 530 393)"/>
+  </g>
+  <g fill="#d13b25">
+    <circle cx="346" cy="330" r="9"/>
+    <circle cx="470" cy="316" r="8"/>
+    <circle cx="410" cy="398" r="7"/>
+    <circle cx="548" cy="374" r="6"/>
+    <circle cx="312" cy="412" r="6"/>
+  </g>
+  <g fill="#7fa653">
+    <path d="M520 300c16-10 34-6 38 8 4 13-8 24-23 23-13-1-20-10-17-20 1-5 1-8 2-11Z"/>
+    <path d="M270 360c14-8 30-4 32 8 2 11-8 20-20 18-11-1-16-9-14-17 1-4 1-6 2-9Z"/>
+    <path d="M468 250c12-6 26-2 28 8 2 9-7 17-17 16-9-1-14-8-12-15 1-4 1-6 1-9Z"/>
+  </g>
+  <g fill="#f7e2b0" opacity="0.8">
+    <circle cx="440" cy="440" r="4"/>
+    <circle cx="330" cy="456" r="3"/>
+    <circle cx="560" cy="430" r="3"/>
+  </g>
+</svg>

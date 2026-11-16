@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Seller — GeprekOn</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="GeprekOn">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z" />
+              <path d="M6 8c0-2 2-3 4-2 1-2 4-2 5 0 2-1 4 0 4 2" />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>GeprekOn</strong>
+            <span>Seller Panel</span>
+          </span>
+        </a>
+
+        <nav class="side-nav" aria-label="Navigasi seller">
+          <span class="nav-label">Menu</span>
+          <button class="nav-item active" type="button" data-section="overview" data-icon="home">
+            <span>Ringkasan</span>
+          </button>
+          <button class="nav-item" type="button" data-section="products" data-icon="box">
+            <span>Produk saya</span>
+          </button>
+          <button class="nav-item" type="button" data-section="categories" data-icon="tag">
+            <span>Kategori</span>
+          </button>
+          <a class="nav-item" href="/" target="_blank" rel="noopener" data-icon="external">
+            <span>Lihat katalog</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-foot">
+          <div class="side-user">
+            <span class="avatar" id="userAvatar">S</span>
+            <div>
+              <strong id="userName">Memuat…</strong>
+              <span>Seller</span>
+            </div>
+          </div>
+          <button class="btn btn-ghost" type="button" id="logoutButton" data-icon="logout">
+            <span>Keluar</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="page-title">
+            <h1 id="pageTitle">Ringkasan</h1>
+            <p id="pageSubtitle">Pantau produk dan stok milik toko Anda.</p>
+          </div>
+        </header>
+
+        <section class="dash-section" id="section-overview">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Produk saya</span>
+              <span class="stat-value" id="statProducts">—</span>
+              <span class="stat-note">Total menu terdaftar</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Total stok</span>
+              <span class="stat-value" id="statStock">—</span>
+              <span class="stat-note">Seluruh produk</span>
+            </div>
+            <div class="stat-card warn">
+              <span class="stat-label">Stok menipis</span>
+              <span class="stat-value" id="statLowStock">—</span>
+              <span class="stat-note">Kurang dari 5 porsi</span>
+            </div>
+            <div class="stat-card accent">
+              <span class="stat-label">Kategori dipakai</span>
+              <span class="stat-value" id="statCategories">—</span>
+              <span class="stat-note">Dari kategori yang tersedia</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Produk unggulan</span>
+              <span class="stat-value" id="statFeatured">—</span>
+              <span class="stat-note">Tampil lebih dulu</span>
+            </div>
+          </div>
+
+          <div class="info-strip">
+            <div class="info-item">
+              <span>Nama toko</span>
+              <strong id="infoStoreName">—</strong>
+            </div>
+            <div class="info-item">
+              <span>WhatsApp aktif</span>
+              <strong id="infoWhatsapp">—</strong>
+            </div>
+            <div class="info-item">
+              <span>Alamat</span>
+              <strong id="infoAddress">—</strong>
+            </div>
+            <div class="info-item">
+              <span>Jam buka</span>
+              <strong id="infoHours">—</strong>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Stok menipis</h2>
+                <p>Produk dengan stok di bawah 5 porsi. Segera perbarui stoknya.</p>
+              </div>
+              <button class="btn btn-outline btn-sm" type="button" id="openProductsFromLow">
+                Kelola produk
+              </button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Produk</th>
+                    <th>Kategori</th>
+                    <th>Stok</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="lowStockTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="dash-section" id="section-products" hidden>
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Produk saya</h2>
+                <p>Hanya produk milik akun Anda yang dapat diubah di sini.</p>
+              </div>
+              <button class="btn btn-primary" type="button" id="addProductButton" data-icon="plus">
+                <span>Tambah produk</span>
+              </button>
+            </div>
+            <div class="table-toolbar">
+              <label class="sr-only" for="productSearch">Cari produk</label>
+              <input
+                class="input"
+                id="productSearch"
+                type="search"
+                placeholder="Cari nama produk…"
+                autocomplete="off"
+              />
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Produk</th>
+                    <th>Kategori</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                    <th>Unggulan</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="productsTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="dash-section" id="section-categories" hidden>
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Kategori</h2>
+                <p>
+                  Kategori dipakai bersama seluruh seller. Hanya kategori tanpa produk
+                  yang dapat dihapus.
+                </p>
+              </div>
+            </div>
+            <div class="table-toolbar">
+              <label class="sr-only" for="newCategoryName">Nama kategori baru</label>
+              <input
+                class="input"
+                id="newCategoryName"
+                type="text"
+                maxlength="50"
+                placeholder="Nama kategori baru"
+              />
+              <button class="btn btn-primary btn-sm" type="button" id="addCategoryButton" data-icon="plus">
+                <span>Tambah</span>
+              </button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Kategori</th>
+                    <th>Produk saya</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="categoriesTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Product modal -->
+    <dialog class="modal" id="productModal" aria-labelledby="productModalTitle">
+      <form id="productForm" novalidate>
+        <div class="modal-head">
+          <div>
+            <h2 id="productModalTitle">Tambah produk</h2>
+            <p id="productModalSubtitle">Lengkapi detail produk untuk ditampilkan di katalog.</p>
+          </div>
+          <button class="modal-close" type="button" data-close-modal aria-label="Tutup">
+            <span data-icon="close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-error" id="productFormError" role="alert"></div>
+          <div class="form-grid">
+            <div class="field full">
+              <label class="label" for="productNameInput">Nama produk</label>
+              <input class="input" id="productNameInput" type="text" maxlength="100" required />
+            </div>
+
+            <div class="field">
+              <label class="label" for="productCategoryInput">Kategori</label>
+              <div class="category-picker">
+                <select class="select" id="productCategoryInput"></select>
+                <button class="btn btn-outline btn-sm" type="button" id="toggleNewCategory">
+                  Baru
+                </button>
+              </div>
+              <span class="hint">Pilih kategori yang ada atau tambah baru.</span>
+            </div>
+
+            <div class="field" id="newCategoryField" hidden>
+              <label class="label" for="productNewCategoryInput">Kategori baru</label>
+              <div class="category-picker">
+                <input
+                  class="input"
+                  id="productNewCategoryInput"
+                  type="text"
+                  maxlength="50"
+                  placeholder="Nama kategori"
+                />
+                <button class="btn btn-primary btn-sm" type="button" id="createCategoryInline">
+                  Simpan
+                </button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="label" for="productPriceInput">Harga (Rp)</label>
+              <input
+                class="input"
+                id="productPriceInput"
+                type="text"
+                inputmode="numeric"
+                placeholder="15000"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <label class="label" for="productStockInput">Stok</label>
+              <input
+                class="input"
+                id="productStockInput"
+                type="text"
+                inputmode="numeric"
+                placeholder="20"
+                required
+              />
+            </div>
+
+            <div class="field full">
+              <label class="label" for="productDescriptionInput">Deskripsi</label>
+              <textarea
+                class="textarea"
+                id="productDescriptionInput"
+                maxlength="500"
+                placeholder="Ceritakan rasa, isi paket, atau keunggulan produk."
+              ></textarea>
+            </div>
+
+            <div class="field full">
+              <label class="checkbox-row" for="productFeaturedInput">
+                <input type="checkbox" id="productFeaturedInput" />
+                <span>
+                  <strong>Tandai sebagai unggulan</strong>
+                  <span>Produk unggulan tampil lebih dulu di katalog.</span>
+                </span>
+              </label>
+            </div>
+
+            <div class="field full">
+              <span class="label">Gambar produk</span>
+              <div class="image-upload">
+                <div class="image-preview" id="imagePreview">Belum ada gambar</div>
+                <div class="image-upload-body">
+                  <input
+                    class="sr-only"
+                    id="productImageInput"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                  />
+                  <button class="btn btn-outline btn-sm" type="button" id="pickImageButton">
+                    Pilih gambar
+                  </button>
+                  <button class="btn btn-ghost btn-sm" type="button" id="removeImageButton">
+                    Hapus gambar
+                  </button>
+                  <span class="hint" id="imageUploadHint">
+                    JPG, PNG, atau WebP. Gambar diperkecil otomatis sebelum diunggah.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button class="btn btn-outline" type="button" data-close-modal>Batal</button>
+          <button class="btn btn-primary" type="submit" id="productSubmitButton">
+            Simpan produk
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/seller.js"></script>
+  </body>
+</html>

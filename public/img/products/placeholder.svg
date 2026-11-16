@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Gambar produk belum tersedia">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6efe3"/>
+      <stop offset="1" stop-color="#e6d9c6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="670" cy="110" r="140" fill="#ffffff" opacity="0.35"/>
+  <circle cx="120" cy="500" r="160" fill="#ffffff" opacity="0.3"/>
+  <ellipse cx="400" cy="370" rx="240" ry="160" fill="#8a7a63" opacity="0.12"/>
+  <ellipse cx="400" cy="350" rx="240" ry="160" fill="#fffdf8"/>
+  <ellipse cx="400" cy="350" rx="192" ry="120" fill="#f2ebdf"/>
+  <g fill="none" stroke="#b9a88e" stroke-width="14" stroke-linecap="round">
+    <path d="M340 320c0-34 27-62 61-62s61 28 61 62"/>
+    <path d="M330 362c12 30 38 50 70 50s58-20 70-50"/>
+  </g>
+  <circle cx="368" cy="336" r="9" fill="#b9a88e"/>
+  <circle cx="432" cy="336" r="9" fill="#b9a88e"/>
+  <g fill="#cdbfa9">
+    <circle cx="330" cy="272" r="6"/>
+    <circle cx="476" cy="292" r="5"/>
+    <circle cx="472" cy="422" r="4"/>
+  </g>
+</svg>

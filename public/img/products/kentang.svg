@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustrasi kentang goreng">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff2d9"/>
+      <stop offset="1" stop-color="#f0bd74"/>
+    </linearGradient>
+    <linearGradient id="cup" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fdf8ee"/>
+      <stop offset="1" stop-color="#e9dcc4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="690" cy="110" r="145" fill="#ffffff" opacity="0.24"/>
+  <circle cx="100" cy="510" r="180" fill="#ffffff" opacity="0.18"/>
+  <ellipse cx="400" cy="512" rx="170" ry="20" fill="#8a5a15" opacity="0.16"/>
+  <g stroke="#e0a63c" stroke-width="35" stroke-linecap="round">
+    <path d="M330 250V150"/>
+    <path d="M372 246V128" stroke="#f2c159"/>
+    <path d="M414 248V146" stroke="#e8b348"/>
+    <path d="M454 252V164"/>
+    <path d="M492 262V188" stroke="#f2c159"/>
+    <path d="M356 250l-16-90" stroke="#efba4d"/>
+    <path d="M436 250l18-92" stroke="#e3aa3f"/>
+    <path d="M300 270l-24-74" stroke="#eeb94b"/>
+  </g>
+  <g stroke="#fff0c6" stroke-width="12" stroke-linecap="round" opacity="0.55">
+    <path d="M330 200v-36"/>
+    <path d="M414 200v-34"/>
+    <path d="M492 220v-22"/>
+    <path d="M372 190v-34"/>
+  </g>
+  <path d="M282 258h256l-32 230c-2 14-14 24-28 24H342c-14 0-26-10-28-24Z" fill="url(#cup)"/>
+  <path d="M286 268h248" stroke="#d9c9ac" stroke-width="8" stroke-linecap="round"/>
+  <rect x="332" y="318" width="136" height="92" rx="14" fill="#d93a26" opacity="0.9"/>
+  <g fill="#ffffff" opacity="0.9">
+    <circle cx="366" cy="352" r="7"/>
+    <circle cx="400" cy="352" r="7"/>
+    <circle cx="434" cy="352" r="7"/>
+    <circle cx="383" cy="378" r="7"/>
+    <circle cx="417" cy="378" r="7"/>
+  </g>
+  <path d="M338 440h124" stroke="#cdbb9b" stroke-width="6" stroke-linecap="round" opacity="0.7"/>
+  <g fill="#f0b13c">
+    <circle cx="262" cy="360" r="7"/>
+    <circle cx="548" cy="390" r="6"/>
+    <circle cx="570" cy="430" r="4"/>
+  </g>
+  <g fill="#6f9b4c">
+    <path d="M560 300c22-14 44-10 52 4-18 12-38 10-52-4Z"/>
+    <path d="M238 320c18-10 36-6 42 6-16 10-32 8-42-6Z" opacity="0.8"/>
+  </g>
+</svg>

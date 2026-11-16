@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Admin — GeprekOn</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="sidebar">
+        <a class="brand" href="/" aria-label="GeprekOn">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 12h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8Z" />
+              <path d="M6 8c0-2 2-3 4-2 1-2 4-2 5 0 2-1 4 0 4 2" />
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>GeprekOn</strong>
+            <span>Admin Panel</span>
+          </span>
+        </a>
+
+        <nav class="side-nav" aria-label="Navigasi admin">
+          <span class="nav-label">Menu</span>
+          <button class="nav-item active" type="button" data-section="overview" data-icon="home">
+            <span>Ringkasan</span>
+          </button>
+          <button class="nav-item" type="button" data-section="users" data-icon="users">
+            <span>Kelola pengguna</span>
+          </button>
+          <button class="nav-item" type="button" data-section="categories" data-icon="tag">
+            <span>Kategori</span>
+          </button>
+          <button class="nav-item" type="button" data-section="settings" data-icon="settings">
+            <span>Pengaturan toko</span>
+          </button>
+          <a class="nav-item" href="/" target="_blank" rel="noopener" data-icon="external">
+            <span>Lihat katalog</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-foot">
+          <div class="side-user">
+            <span class="avatar" id="userAvatar">A</span>
+            <div>
+              <strong id="userName">Memuat…</strong>
+              <span>Administrator</span>
+            </div>
+          </div>
+          <button class="btn btn-ghost" type="button" id="logoutButton" data-icon="logout">
+            <span>Keluar</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="page-title">
+            <h1 id="pageTitle">Ringkasan</h1>
+            <p id="pageSubtitle">Pantau pengguna dan kondisi katalog GeprekOn.</p>
+          </div>
+        </header>
+
+        <section class="dash-section" id="section-overview">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <span class="stat-label">Total pengguna</span>
+              <span class="stat-value" id="statUsers">—</span>
+              <span class="stat-note" id="statUsersNote">Semua peran</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Seller</span>
+              <span class="stat-value" id="statSellers">—</span>
+              <span class="stat-note">Pengelola produk</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Pembeli</span>
+              <span class="stat-value" id="statBuyers">—</span>
+              <span class="stat-note">Pemilik akun pembeli</span>
+            </div>
+            <div class="stat-card accent">
+              <span class="stat-label">Produk aktif</span>
+              <span class="stat-value" id="statProducts">—</span>
+              <span class="stat-note" id="statCategories">— kategori</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Total stok</span>
+              <span class="stat-value" id="statStock">—</span>
+              <span class="stat-note">Seluruh produk</span>
+            </div>
+            <div class="stat-card warn">
+              <span class="stat-label">Akun nonaktif</span>
+              <span class="stat-value" id="statInactive">—</span>
+              <span class="stat-note">Tidak dapat masuk</span>
+            </div>
+          </div>
+
+          <div class="info-strip" id="storeInfo">
+            <div class="info-item">
+              <span>Nama toko</span>
+              <strong id="infoStoreName">—</strong>
+            </div>
+            <div class="info-item">
+              <span>WhatsApp</span>
+              <strong id="infoWhatsapp">—</strong>
+            </div>
+            <div class="info-item">
+              <span>Alamat</span>
+              <strong id="infoAddress">—</strong>
+            </div>
+            <div class="info-item">
+              <span>Jam buka</span>
+              <strong id="infoHours">—</strong>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Produk di katalog</h2>
+                <p>Daftar produk dari seluruh seller beserta stok terkini.</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Produk</th>
+                    <th>Kategori</th>
+                    <th>Seller</th>
+                    <th>Harga</th>
+                    <th>Stok</th>
+                  </tr>
+                </thead>
+                <tbody id="overviewProducts"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="dash-section" id="section-users" hidden>
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Pengguna</h2>
+                <p>Tambahkan seller, atur peran, atau nonaktifkan akun.</p>
+              </div>
+              <button class="btn btn-primary" type="button" id="addUserButton" data-icon="plus">
+                <span>Tambah pengguna</span>
+              </button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pengguna</th>
+                    <th>Peran</th>
+                    <th>Status</th>
+                    <th>Produk</th>
+                    <th>Terdaftar</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="usersTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="dash-section" id="section-categories" hidden>
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Kategori</h2>
+                <p>Kategori ini tersedia untuk seluruh seller dan tampil sebagai filter katalog.</p>
+              </div>
+            </div>
+            <div class="table-toolbar">
+              <label class="sr-only" for="newCategoryName">Nama kategori baru</label>
+              <input
+                class="input"
+                id="newCategoryName"
+                type="text"
+                maxlength="50"
+                placeholder="Nama kategori baru"
+              />
+              <button class="btn btn-primary btn-sm" type="button" id="addCategoryButton" data-icon="plus">
+                <span>Tambah</span>
+              </button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Kategori</th>
+                    <th>Jumlah produk</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="categoriesTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="dash-section" id="section-settings" hidden>
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h2>Pengaturan toko</h2>
+                <p>Nomor WhatsApp dipakai seluruh tombol pesan di katalog.</p>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="form-error" id="settingsError" role="alert"></div>
+              <form id="settingsForm" novalidate>
+                <div class="form-grid">
+                  <div class="field">
+                    <label class="label" for="storeNameInput">Nama toko</label>
+                    <input class="input" id="storeNameInput" type="text" maxlength="80" required />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="whatsappInput">Nomor WhatsApp</label>
+                    <input
+                      class="input"
+                      id="whatsappInput"
+                      type="tel"
+                      inputmode="numeric"
+                      maxlength="20"
+                      placeholder="6281234567890"
+                      required
+                    />
+                    <span class="hint">Format internasional tanpa +, spasi, atau tanda baca.</span>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="addressInput">Alamat</label>
+                    <input class="input" id="addressInput" type="text" maxlength="200" />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="hoursInput">Jam buka</label>
+                    <input class="input" id="hoursInput" type="text" maxlength="120" placeholder="Setiap hari, 10.00 - 21.00 WIB" />
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit" id="saveSettingsButton">
+                  Simpan pengaturan
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- User modal -->
+    <dialog class="modal" id="userModal" aria-labelledby="userModalTitle">
+      <form id="userForm" novalidate>
+        <div class="modal-head">
+          <div>
+            <h2 id="userModalTitle">Tambah pengguna</h2>
+            <p id="userModalSubtitle">Buat akun baru dan tentukan perannya.</p>
+          </div>
+          <button class="modal-close" type="button" data-close-modal aria-label="Tutup">
+            <span data-icon="close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-error" id="userFormError" role="alert"></div>
+          <div class="form-grid">
+            <div class="field">
+              <label class="label" for="userNameInput">Nama lengkap</label>
+              <input class="input" id="userNameInput" name="name" type="text" maxlength="80" required />
+            </div>
+            <div class="field">
+              <label class="label" for="userEmailInput">Email</label>
+              <input class="input" id="userEmailInput" name="email" type="email" maxlength="160" required />
+            </div>
+            <div class="field" id="userPasswordField">
+              <label class="label" for="userPasswordInput">Password awal</label>
+              <input
+                class="input"
+                id="userPasswordInput"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                minlength="8"
+              />
+              <span class="hint">Minimal 8 karakter.</span>
+            </div>
+            <div class="field">
+              <label class="label" for="userRoleInput">Peran</label>
+              <select class="select" id="userRoleInput" name="role">
+                <option value="buyer">Pembeli</option>
+                <option value="seller">Seller</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label class="checkbox-row" for="userActiveInput">
+                <input type="checkbox" id="userActiveInput" checked />
+                <span>
+                  <strong>Akun aktif</strong>
+                  <span>Akun nonaktif tidak dapat masuk dan sesinya dihentikan.</span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button class="btn btn-outline" type="button" data-close-modal>Batal</button>
+          <button class="btn btn-primary" type="submit" id="userSubmitButton">Simpan pengguna</button>
+        </div>
+      </form>
+    </dialog>
+
+    <!-- Password modal -->
+    <dialog class="modal" id="passwordModal" aria-labelledby="passwordModalTitle">
+      <form id="passwordForm" novalidate>
+        <div class="modal-head">
+          <div>
+            <h2 id="passwordModalTitle">Atur ulang password</h2>
+            <p id="passwordModalSubtitle">Sesi pengguna akan dihentikan setelah password diubah.</p>
+          </div>
+          <button class="modal-close" type="button" data-close-modal aria-label="Tutup">
+            <span data-icon="close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-error" id="passwordFormError" role="alert"></div>
+          <div class="field">
+            <label class="label" for="newPasswordInput">Password baru</label>
+            <input
+              class="input"
+              id="newPasswordInput"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            />
+            <span class="hint">Minimal 8 karakter.</span>
+          </div>
+        </div>
+        <div class="modal-foot">
+          <button class="btn btn-outline" type="button" data-close-modal>Batal</button>
+          <button class="btn btn-primary" type="submit" id="passwordSubmitButton">
+            Simpan password
+          </button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
